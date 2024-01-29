@@ -5,12 +5,25 @@ from .models import *
 
 class PmObjectAdmin(admin.ModelAdmin):
     fields = [
-    "title","isbn",'barcode'
+    "device","isbn",'barcode',
+    "location","unit",'country_maker',
+    "company_maker"
     ]
-    list_display = ["title","isbn",'image_tag']
-    search_fields = ["title","isbn"]
+    list_display = ["device","location",'unit','image_tag']
+    search_fields = ["device","isbn"]
     
-    def get_users(self, instance):
-        return [user.first_name for user in instance.users.all()]
+class DeviceEngineAdmin(admin.ModelAdmin):
+    fields = ["title"]
+    list_display = ["title"]
+    search_fields = ["title"]
     
+class UnitAdmin(admin.ModelAdmin):
+    fields = ["title"]
+    list_display = ["title"]
+    search_fields = ["title"]
+
+
+
 admin.site.register(PmObjectModel, PmObjectAdmin)
+admin.site.register(DeviceEngineModel, DeviceEngineAdmin)
+admin.site.register(UnitModel, UnitAdmin)

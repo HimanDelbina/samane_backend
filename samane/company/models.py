@@ -29,6 +29,7 @@ class UserModel(models.Model):
     is_pm = models.BooleanField(default=False, verbose_name="آیا به بخش پی ام دسترسی دارد ؟")
     is_cartex=models.BooleanField(default=True, verbose_name="آیا به بخش کارتکس انبار دسترسی دارد ؟")
     is_store_manager = models.BooleanField(default = False ,verbose_name="آیا به بخش مدیریت انبار دسترسی دارد ؟" )
+    is_agency = models.BooleanField(default = False ,verbose_name="آیا به بخش آزانس دسترسی دارد ؟" )
     password = models.CharField(max_length=20, verbose_name="رمز")
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)

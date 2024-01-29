@@ -75,3 +75,12 @@ def cartex_user_back(request):
     edit_data_find_in_database.is_back = etid_data['is_back']
     edit_data_find_in_database.save()
     return Response("cartex is back succesfully....", status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def cartex_accept_manager(request):
+    etid_data = request.data
+    edit_data_find_in_database = CartexModel.objects.get(id=etid_data['id'])
+    edit_data_find_in_database.is_manager = etid_data['is_manager']
+    edit_data_find_in_database.save()
+    return Response("cartex is accept with manager succesfully....", status=status.HTTP_200_OK)

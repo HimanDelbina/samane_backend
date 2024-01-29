@@ -9,4 +9,5 @@ urlpatterns = [
     path("get_cartex_user_temporary/<int:id>", views.get_cartex_user_temporary),
     path("cartex_user_back", views.cartex_user_back),
     path("get_cartex_manager", views.get_cartex_manager),
+    path("cartex_accept_manager", views.cartex_accept_manager),
 ]

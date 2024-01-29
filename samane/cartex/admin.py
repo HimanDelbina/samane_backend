@@ -9,13 +9,10 @@ class CartexAdmin(admin.ModelAdmin):
         "user",
         'is_temporary',
         'is_always',
-        'is_back',
-        'is_manager',
     ]
     list_display = ["title","user",'is_temporary',
-        'is_always',  'is_back',
-        'is_manager',]
-    list_filter = ["title","user",'is_temporary',
+        'is_always','create_at']
+    list_filter = ["user",'is_temporary',
         'is_always']
     search_fields = ["title","user",'is_temporary',
         'is_always']

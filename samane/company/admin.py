@@ -20,10 +20,11 @@ class UserAdmin(admin.ModelAdmin):
         "is_pm",
         "is_cartex",
         "is_store_manager",
+        "is_agency",
     ]
-    list_display = ["phone_number","company_code", "first_name", "last_name","is_driver",'is_store_manager']
-    list_filter = ["is_driver", "is_admin","is_tell","is_driver_role","company_code",'is_store_manager']
-    search_fields = ['first_name', 'last_name', 'phone_number',"company_code",'is_store_manager']
+    list_display = ["phone_number","company_code", "first_name", "last_name","post","is_driver",'is_admin']
+    list_filter = ["is_driver", "is_admin","is_tell","is_driver_role",'is_store_manager','is_agency']
+    search_fields = ['first_name', 'last_name', 'phone_number',"company_code"]
 
 
 class DriverAdmin(admin.ModelAdmin):

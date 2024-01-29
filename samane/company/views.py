@@ -39,6 +39,7 @@ def create_user(request):
             data["is_driver_role"] = account.is_driver_role
             data["is_cartex"] = account.is_cartex
             data["is_store_manager"] = account.is_store_manager
+            data["is_agency"] = account.is_agency
             data["password"] = account.password
             data["create_at"] = account.create_at
             data["update_at"] = account.update_at
@@ -72,6 +73,7 @@ def login_user(request):
         info["is_cartex"] = user.is_cartex
         info["password"] = user.password
         info["is_store_manager"] = user.is_store_manager
+        info["is_agency"] = user.is_agency
         info["create_at"] = user.create_at
         info["update_at"] = user.update_at
         info["token"] = token
@@ -103,6 +105,7 @@ def edit_user(request):
     edit_data_find_in_database.is_driver_role = etid_data['is_driver_role']
     edit_data_find_in_database.is_cartex = etid_data['is_cartex']
     edit_data_find_in_database.is_store_manager = etid_data['is_store_manager']
+    edit_data_find_in_database.is_agency = etid_data['is_agency']
     edit_data_find_in_database.password = etid_data['password']
     edit_data_find_in_database.save()
     return Response("user is update succesfully....", status=status.HTTP_200_OK)
@@ -178,6 +181,7 @@ def get_driver_data(request,driver_id):
 def get_driver_data_accept(request):
     driver_data = DriverModel.objects.filter(is_accept=True,is_active=True)
     return Response(DriverSerializers(driver_data, many=True).data, status=status.HTTP_200_OK)
+
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_driver_data_reject(request):

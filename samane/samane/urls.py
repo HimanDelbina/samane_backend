@@ -11,6 +11,8 @@ urlpatterns = [
     path("tell/", include("tell.urls")),
     path("cartex/", include("cartex.urls")),
     path("company/", include("company.urls")),
+    path("agency/", include("agency.urls")),
+    path("pm/", include("pm.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
